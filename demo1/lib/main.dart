@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import './pages/title_section.dart';
 import './pages/button_section.dart';
 import './pages//text_section.dart';
+import 'package:flutter/rendering.dart';// 可视化布局
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = true;
+  runApp(MyApp());
+} 
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
