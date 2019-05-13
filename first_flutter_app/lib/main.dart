@@ -98,19 +98,24 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(
+              child: Text('create route'),
+              textColor: Colors.red,
+              onPressed: (){
+                Navigator.push(context, 
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return NewRoute();
+                    }
+                  )
+                );
+              },
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, 
-            MaterialPageRoute(
-              builder: (context) {
-                return NewRoute();
-              }
-            )
-          );
-        },
+        onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
