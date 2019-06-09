@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:first_flutter_app/list_view_demo.dart';
+import 'package:first_flutter_app/infinitivie_list_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,11 +22,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        "new_page":(context)=>NewRoute(),
+      },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
-num x = 3;
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -38,7 +43,6 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -74,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: InfinitiviListViewTest(),/*Column(
           // Column is also layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -98,22 +102,26 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlexAndExpandedTest(),
             FlatButton(
               child: Text('create route'),
               textColor: Colors.red,
               onPressed: (){
-                Navigator.push(context, 
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return NewRoute();
-                    }
-                  )
-                );
-              },
-            )
+                // Navigator.push(context, 
+                //   MaterialPageRoute(
+                //     builder: (context) {
+                //       return NewRoute();
+                //     }
+                //   )
+                // );
+                Navigator.pushNamed(
+                  context, "new_page");
+              },              
+            ),
+            SingleChildScrollViewTest(),
           ],
         ),
-      ),
+      */),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -133,6 +141,54 @@ class NewRoute extends StatelessWidget {
       body: Center(
         child: Text(
           "This is new route",
+        ),
+      ),
+    );
+  }
+}
+
+class FlexAndExpandedTest extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Flex(
+          direction: Axis.horizontal,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 130,
+                color: Colors.red,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                height: 130,
+                color: Colors.blue,
+              ),
+            )
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class SingleChildScrollViewTest extends StatelessWidget {
+  const SingleChildScrollViewTest({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String str = "ABCDEFGHIJKLMNOPQRESUVWXYZ" * 10;
+    return Scrollbar(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Center(
+          child: Column(
+            children: str.split("").map((c) => Text(c)).toList(),
+          ),
         ),
       ),
     );
