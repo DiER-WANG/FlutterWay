@@ -7,7 +7,7 @@ import 'grid_view_test.dart';
 import 'custom_scroll_view_test.dart';
 import 'scroll_listener.dart';
 import 'scroll_notification_test.dart';
-
+import 'gesture_event_test.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "new_page":(context)=>NewRoute(),
       },
-      home: ScrollNotificationTest(), //MyHomePage(title: 'Flutter Demo Home Page'),
+      home: GestureEventTest(), //MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

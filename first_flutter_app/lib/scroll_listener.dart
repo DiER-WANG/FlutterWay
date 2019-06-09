@@ -43,7 +43,6 @@ class _ScrollListenerTestState extends State<ScrollListenerTest> {
       ),
       body: ListView.separated(
         itemCount: 200,
-
         separatorBuilder: (context, index) {
           return Divider(
             height: 1,
