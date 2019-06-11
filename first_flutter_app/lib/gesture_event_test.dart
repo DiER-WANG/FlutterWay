@@ -6,9 +6,14 @@ class GestureEventTest extends StatefulWidget {
   _GestureEventTestState createState() => _GestureEventTestState();
 }
 
-class _GestureEventTestState extends State<GestureEventTest> {
+class _GestureEventTestState extends State<GestureEventTest>  with WidgetsBindingObserver{
   num _doubleTapCount = 0;
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,5 +39,18 @@ class _GestureEventTestState extends State<GestureEventTest> {
         },
       ),
     );
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print('$state');
+  }
+
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 }
