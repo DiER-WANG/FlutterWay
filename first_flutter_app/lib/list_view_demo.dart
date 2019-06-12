@@ -32,6 +32,7 @@ class _ListViewWithSeparatorTestState extends State<ListViewWithSeparatorTest> {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: 100,
+      cacheExtent:10,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
           title: Text("$index"),

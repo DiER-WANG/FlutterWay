@@ -1,3 +1,6 @@
+/// 路由跳转 demo 展示
+
+
 import 'package:flutter/material.dart';
 
 class ColumnTest extends StatelessWidget {
@@ -33,6 +36,7 @@ class ColumnTest extends StatelessWidget {
           child: Text('create route'),
           textColor: Colors.red,
           onPressed: () {
+            // 跳转界面 第一中方法 
             // Navigator.push(context,
             //   MaterialPageRoute(
             //     builder: (context) {
@@ -40,10 +44,27 @@ class ColumnTest extends StatelessWidget {
             //     }
             //   )
             // );
+            // 跳转界面 第二种方法
             Navigator.pushNamed(context, "new_page");
           },
         ),
       ],
+    );
+  }
+}
+
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New Route"),
+      ),
+      body: Center(
+        child: Text(
+          "This is new route",
+        ),
+      ),
     );
   }
 }

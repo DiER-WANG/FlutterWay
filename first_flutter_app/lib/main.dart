@@ -8,6 +8,8 @@ import 'custom_scroll_view_test.dart';
 import 'scroll_listener.dart';
 import 'scroll_notification_test.dart';
 import 'gesture_event_test.dart';
+import 'package:first_flutter_app/inherited_class_test.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -19,11 +21,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Colors.cyan,
       ),
       routes: {
         "new_page": (context) => NewRoute(),
       },
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),//InheritedDemo(),
     );
   }
 }
@@ -56,8 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:  Center(
-          child: Text('$_counter',
-              style: TextStyle(color: Colors.red, fontSize: 50))),
+          child: InfinitiviListViewTest()),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -66,26 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-/// CustomScrollViewTest()
-///
-///
-
-class NewRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("New Route"),
-      ),
-      body: Center(
-        child: Text(
-          "This is new route",
-        ),
-      ),
-    );
-  }
-}
+// InfinitiviListViewTest() 动态加载
+// ListViewWithSeparatorTest() 带分割线的 list view
+// ListViewTest() 列表展示
+// ColumnTest() 路由跳转测试
+// Text('$_counter',
+  // style: TextStyle(color: Colors.red, fontSize: 50, backgroundColor: Theme.of(context).primaryColor))
 
 /// Column
 class FlexAndExpandedTest extends StatelessWidget {
