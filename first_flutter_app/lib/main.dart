@@ -10,7 +10,6 @@ import 'scroll_notification_test.dart';
 import 'gesture_event_test.dart';
 import 'package:first_flutter_app/inherited_class_test.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "new_page": (context) => NewRoute(),
       },
-      home: MyHomePage(title: 'Flutter Demo Home Page'),//InheritedDemo(),
+      home: MyHomePage(title: 'Flutter Demo Home Page'), //InheritedDemo(),
     );
   }
 }
@@ -58,8 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body:  Center(
-          child: InfinitiviListViewTest()),
+      body: Center(
+          child: Text('$_counter',
+              style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 50,
+                  backgroundColor: Theme.of(context).primaryColor))),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
@@ -68,12 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+// CustomScrollViewTest sliver widget
 // InfinitiviListViewTest() 动态加载
 // ListViewWithSeparatorTest() 带分割线的 list view
 // ListViewTest() 列表展示
 // ColumnTest() 路由跳转测试
 // Text('$_counter',
-  // style: TextStyle(color: Colors.red, fontSize: 50, backgroundColor: Theme.of(context).primaryColor))
+// style: TextStyle(color: Colors.red, fontSize: 50, backgroundColor: Theme.of(context).primaryColor))
 
 /// Column
 class FlexAndExpandedTest extends StatelessWidget {
