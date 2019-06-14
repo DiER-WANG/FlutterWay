@@ -58,11 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Text('$_counter',
-              style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 50,
-                  backgroundColor: Theme.of(context).primaryColor))),
+        child: ColumnTest(),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
